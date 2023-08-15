@@ -1,8 +1,18 @@
-<h1>GSD</h1>
-  <p>
-    <ul>
-      <% @tasks.each do |task| %>
-        <li><%= link_to task.title, task_path(task)%></li>
-      <% end %>
-    </ul>
-  </p>
+<div class="container">
+  <h1>GSD</h1>
+  <% @tasks.each do |task| %>
+    <div class="row d-inline-flex">
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <div class="card-body">
+            <img src="https://source.unsplash.com/random/200x200" class="card-img-top" alt="...">
+            <h5 class="card-title"><%= link_to task.title, task_path(task)%></h5>
+            <p class="card-text lead"><%= task.details %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <i class="fa-solid fa-plus"></i>
+  <%= link_to "Add new task", new_task_path%>
+</div>
